@@ -1,0 +1,11 @@
+export const ADD_NUMBER = 'ADD_NUMBER';
+export const MINUS_NUMBER = 'MINUS_NUMBER';
+
+export const ADD_STRING = 'ADD_STRING';
+export const MINUS_STRING = 'MINUS_STRING';
+
+export const DATA_ADD_NUMBER = 'DATA_ADD_NUMBER';
+export const DATA_MINUS_NUMBER = 'DATA_MINUS_NUMBER';
+
+export const DATA_ADD_STRING = 'DATA_ADD_STRING';
+export const DATA_MINUS_STRING = 'DATA_MINUS_STRING';
