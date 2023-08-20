@@ -68,3 +68,23 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+***
+
+上面是 `create-react-app` 创建出来的模板内容。
+
+这个项目的初衷是《[react 基础工程（react-redux & react-router）](https://blog.cchealthier.com/2023/05/31/react-basic-app/)》，然后就在上面顺便做一些练手项目。
+
+### main 分支
+
+基础的工程模板
+
+### dev-advance 分支
+
+增加了 `react-query` 的使用，增加了一些声明周期的使用，增加了一些 hook 的使用。
+
+### ui-editor 分支
+
+写了一个简单拖拽式 ui 生成界面编辑器，当前是用于编辑静态页面。所谓静态是指没有交互，比如生成一些微信活动场景页面那种。虽然为了示例用了 antd 的一些表单组件，但实际上没有交互作用。界面如下：
+
+![uieditor](https://github.com/orochi97/react-app/blob/main/images/uieditor.png)
