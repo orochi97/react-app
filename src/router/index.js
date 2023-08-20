@@ -8,6 +8,20 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
+    path: '/uieditor',
+    async lazy() {
+      const comp = await import('@/views/UiEditor');
+      return { Component: comp.default };
+    },
+  },
+  {
+    path: '/uipreview',
+    async lazy() {
+      const comp = await import('@/views/UiEditor/Preview');
+      return { Component: comp.default, loader: comp.loader };
+    },
+  },
+  {
     path: '/demo/:id',
     // element: <Demo />,
     async lazy() {

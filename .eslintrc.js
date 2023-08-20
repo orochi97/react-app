@@ -1,3 +1,12 @@
+const isDev = process.env.NODE_ENV === 'development';
+
+const map = {
+  'semi': isDev ? 0 : ['error', 'always'],
+  'no-console': isDev ? 0 : ['error', { allow: ['info', 'warn', 'error'] }],
+  'no-unused-vars': isDev ? 0 : ['error', { args: 'after-used' }],
+};
+
+
 // 这里不适用了 prettier，可酌情使用
 module.exports = {
   env: {
@@ -21,12 +30,12 @@ module.exports = {
   ],
   rules: {
     // 直接声明的 eslint 规则
-    semi: ['error', 'always'], // 规则为：需要结束分号，优先级为 error，即抛错
+    semi: map['semi'], // 规则为：需要结束分号，优先级为 error，即抛错
     // 当最后一个元素或属性与闭括号 ] 或 } 在 不同的行时，要求使用拖尾逗号
     // 当在 同一行时，禁止使用拖尾逗号。https://eslint.bootcss.com/docs/rules/comma-dangle
     'comma-dangle': ['error', 'always-multiline'],
-    'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
-    'no-unused-vars': ['error', { args: 'after-used' }],
+    'no-console': map['no-console'],
+    'no-unused-vars': map['no-unused-vars'],
     // "plugin1/rule1": "error" 配置定义在插件中的一个规则的时候，必须使用 插件名/规则ID 的形式
     // 'prettier/prettier': 'error',
   },

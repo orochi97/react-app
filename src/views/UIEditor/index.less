@@ -1,0 +1,32 @@
+.ui-editor {
+	position: relative;
+	height: 100%;
+	.editor-header {
+		height: 160px;
+	}
+	.editor-section {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 161px;
+		display: flex;
+	}
+	.editor-toolbox {
+		border-right: 1px solid #ccc;
+		flex-basis: 300px;
+		background-color: white;
+		z-index: 100;
+	}
+	.editor-layout {
+		flex-grow: 2;
+		min-width: 500px;
+		background-color: white;
+	}
+	.editor-porperty {
+		border-left: 1px solid #ccc;
+		flex-basis: 300px;
+		background-color: white;
+		z-index: 100;
+	}
+}
