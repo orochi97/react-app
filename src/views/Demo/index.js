@@ -17,8 +17,12 @@ import {
   increment,
   incrementByAmount,
 } from '@/store';
+import {
+  pokemonApi,
+  digimonApi,
+} from '@/store/services';
 
-import "./index.less";
+import './index.less';
 
 function SubComp() {
   const state = useSelector(state => state);
@@ -35,6 +39,16 @@ function SubComp() {
 }
 
 function Demo() {
+  const getPokemonByName = pokemonApi.useGetPokemonByNameQuery('bulbasaur');
+  console.info('getPokemonByName', getPokemonByName);
+
+  const getDigimonByName = digimonApi.useGetDigimonByNameQuery('agumon', { skip: true });
+  console.info('getDigimonByName', getDigimonByName);
+
+  const [saveDigimonFunc, saveDigimonStatus] = digimonApi.useSaveDigimonMutation();
+  console.info('saveDigimon', saveDigimonStatus);
+
+
   const dispatch = useDispatch();
   const location = useLocation();
   const params = useParams();
@@ -54,8 +68,9 @@ function Demo() {
   }, [dispatch]);
 
   useEffect(() => {
+    saveDigimonFunc({ name: 'agumon' });
     console.info('mounted');
-  }, []); // 加空数组只触发一次
+  }, [saveDigimonFunc]); // 加空数组只触发一次
   useEffect(() => {
     console.info('mounted or update');
   }); // 不加参数，每次渲染都会触发

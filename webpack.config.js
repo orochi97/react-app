@@ -13,6 +13,9 @@ const publicDir = resolve(cwd, 'public');
 
 const isDev = process.env.NODE_ENV === 'development';
 
+// 本地启动了 mock 服务，视项目情况填写
+const serverUrl = 'http://localhost:4040';
+
 // function clearConsole() {
 //   process.stdout.write(
 //     process.platform === 'win32' ? '\x1B[2J\x1B[0f' : '\x1B[2J\x1B[3J\x1B[H'
@@ -51,7 +54,7 @@ module.exports = {
     historyApiFallback: { disableDotRule: true, index: '/' },
     // proxy: { // 配置代理
     //   '/api': {
-    //     target: 'http://localhost:3000',
+    //     target: serverUrl,
     //     changeOrigin: true,
     //   },
     // },
@@ -128,6 +131,7 @@ module.exports = {
     // 编译时替换全局变量
     new webpack.DefinePlugin({
       'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'BASE_URL': isDev ? JSON.stringify(serverUrl + '/api') : JSON.stringify('/api'),
     }),
     new ESLintPlugin({
       extensions: ['.js', '.ts'],
@@ -141,7 +145,7 @@ module.exports = {
       inject: 'body',
       template: resolve(publicDir, 'index.html'),
       templateParameters: {
-        'PUBLIC_URL': ''
+        'PUBLIC_URL': '',
       },
     }),
     // 把 public 的文件拷贝过去 dist 文件
