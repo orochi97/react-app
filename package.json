@@ -26,6 +26,8 @@
     "build:react": "react-scripts build",
     "dev:craco": "craco start",
     "build:craco": "craco build",
+    "dev:vite": "vite",
+    "build:vite": "vite build",
     "prebuild": "rm -rf dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -52,10 +54,12 @@
     "@commitlint/cli": "^17.6.5",
     "@commitlint/config-conventional": "^17.6.5",
     "@craco/craco": "^7.1.0",
+    "@vitejs/plugin-react": "^4.0.4",
     "copy-webpack-plugin": "^11.0.0",
     "husky": "^8.0.3",
     "less-loader": "^11.1.1",
     "lint-staged": "^13.2.2",
+    "vite": "^4.4.9",
     "webpack-cli": "^5.1.1"
   }
 }
